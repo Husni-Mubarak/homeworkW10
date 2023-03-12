@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const MoviesController = require("../controllers/movies_controller.js");
 const UsersController = require("../controllers/users_controller.js");
+const updateRouter = require("../add_img.js");
 
 // Endpoint movies
 router.get("/movies", MoviesController.getAllControl);
@@ -16,5 +17,7 @@ router.get("/users/:id", UsersController.findUserControl);
 router.post("/users", UsersController.insertUserControl);
 router.put("/users/:id", UsersController.updateUserControl);
 router.delete("/users/:id", UsersController.deleteUserControl);
+
+router.use(updateRouter);
 
 module.exports = router;
